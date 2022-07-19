@@ -1,6 +1,6 @@
 const { prop } = require("@typegoose/typegoose");
 
-enum Answer {
+export enum Answer {
   IDoNotRemember = 0,
   IRemember = 1,
   IRememberVeryWell = 2,
