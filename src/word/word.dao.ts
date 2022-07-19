@@ -1,4 +1,4 @@
-const { prop } = require("@typegoose/typegoose");
+const { prop, PropType } = require("@typegoose/typegoose");
 
 export enum Answer {
   IDoNotRemember = 0,
@@ -23,6 +23,17 @@ export class WordData {
   example?: string;
 }
 
+class History {
+  @prop({ required: true, type: Number }, PropType.ARRAY)
+  pushedAt: Array<number>;
+
+  @prop({ required: true, type: Number }, PropType.ARRAY)
+  answeredAt: Array<number>;
+
+  @prop({ required: true, type: Number }, PropType.ARRAY)
+  answers: Array<Answer>;
+}
+
 export class Word extends WordData {
   @prop({ required: true })
   stage!: number;
@@ -40,9 +51,5 @@ export class Word extends WordData {
   user!: string;
 
   @prop({ required: true })
-  history!: {
-    pushedAt: Array<number>;
-    answeredAt: Array<number>;
-    answers: Array<Answer>;
-  };
+  history!: History;
 }
