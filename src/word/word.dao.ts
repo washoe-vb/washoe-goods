@@ -6,7 +6,7 @@ export enum Answer {
   IRememberVeryWell = 2,
 }
 
-enum WordStatus {
+export enum WordStatus {
   Idle = 0,
   Pushed = 1,
   Deleted = -1,
