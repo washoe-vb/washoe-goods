@@ -1,4 +1,4 @@
-const { prop, PropType } = require("@typegoose/typegoose");
+const { prop, modelOptions, PropType } = require("@typegoose/typegoose");
 
 export enum Answer {
   IDoNotRemember = 0,
@@ -34,15 +34,13 @@ class History {
   answers: Array<Answer>;
 }
 
+@modelOptions({ schemaOptions: { timestamps: { currentTime: Date.now } } })
 export class Word extends WordData {
   @prop({ required: true })
   stage!: number;
 
   @prop({ required: true })
   status!: WordStatus;
-
-  @prop({ required: true })
-  createdAt!: number;
 
   @prop({ required: true })
   notifyAt!: number;
