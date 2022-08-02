@@ -23,6 +23,7 @@ export class WordData {
   example?: string;
 }
 
+@modelOptions({ schemaOptions: { id: false } })
 class History {
   @prop({ required: true, type: Number }, PropType.ARRAY)
   pushedAt: Array<number>;
