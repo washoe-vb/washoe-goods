@@ -5,10 +5,9 @@ export declare enum Answer {
 }
 export declare enum WordStatus {
     Idle = 0,
-    Pushed = 1,
-    Deleted = -1
+    Pushed = 1
 }
-export declare class WordData {
+export declare class WordSemantics {
     word: string;
     definition?: string;
     example?: string;
@@ -18,11 +17,12 @@ declare class History {
     answeredAt: Array<number>;
     answers: Array<Answer>;
 }
-export declare class Word extends WordData {
+export declare class Word extends WordSemantics {
     stage: number;
     status: WordStatus;
     notifyAt: number;
     user: string;
     history: History;
+    deletedAt: number;
 }
 export {};
