@@ -12,7 +12,7 @@ export enum WordStatus {
   Deleted = -1,
 }
 
-export class WordData {
+export class WordSemantics {
   @prop({ required: true })
   word!: string;
 
@@ -36,7 +36,7 @@ class History {
 }
 
 @modelOptions({ schemaOptions: { timestamps: { currentTime: Date.now } } })
-export class Word extends WordData {
+export class Word extends WordSemantics {
   @prop({ required: true })
   stage!: number;
 
