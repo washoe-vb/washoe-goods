@@ -50,4 +50,7 @@ export class Word extends WordSemantics {
 
   @prop({ required: true })
   history!: History;
+
+  @prop({ required: true })
+  deletedAt!: number;
 }
