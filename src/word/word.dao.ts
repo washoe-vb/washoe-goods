@@ -9,7 +9,6 @@ export enum Answer {
 export enum WordStatus {
   Idle = 0,
   Pushed = 1,
-  Deleted = -1,
 }
 
 export class WordSemantics {
