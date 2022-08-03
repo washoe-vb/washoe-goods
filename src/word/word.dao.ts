@@ -34,7 +34,11 @@ class History {
   answers: Array<Answer>;
 }
 
-@modelOptions({ schemaOptions: { timestamps: { currentTime: Date.now } } })
+@modelOptions({
+  schemaOptions: {
+    timestamps: { currentTime: () => Math.floor(Date.now() / 1000) },
+  },
+})
 export class Word extends WordSemantics {
   @prop({ required: true })
   stage!: number;
