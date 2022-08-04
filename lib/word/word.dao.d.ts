@@ -7,22 +7,22 @@ export declare enum WordStatus {
     Idle = 0,
     Pushed = 1
 }
-export declare class WordSemantics {
+export declare class DictionaryEntry {
     word: string;
     definition?: string;
     example?: string;
 }
 declare class History {
-    pushedAt: Array<number>;
-    answeredAt: Array<number>;
+    pushedAt: Array<Date>;
+    answeredAt: Array<Date>;
     answers: Array<Answer>;
 }
-export declare class Word extends WordSemantics {
+export declare class Word extends DictionaryEntry {
     stage: number;
     status: WordStatus;
-    notifyAt: number;
+    timeToReview: Date;
     user: string;
     history: History;
-    deletedAt: number;
+    deletedAt?: Date;
 }
 export {};
