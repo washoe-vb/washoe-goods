@@ -12,7 +12,7 @@ export enum WordStatus {
   Pushed = 1,
 }
 
-export class WordSemantics {
+export class DictionaryEntry {
   @prop({ required: true })
   word!: string;
 
@@ -36,7 +36,7 @@ class History {
 }
 
 @modelOptions({ schemaOptions: { timestamps: true } })
-export class Word extends WordSemantics {
+export class Word extends DictionaryEntry {
   @prop({ required: true })
   stage!: number;
 
