@@ -20,7 +20,7 @@ declare class History {
 export declare class Word extends DictionaryEntry {
     stage: number;
     status: WordStatus;
-    timeToReview: Date;
+    reviewAt: Date;
     user: string;
     history: History;
     deletedAt?: Date;
