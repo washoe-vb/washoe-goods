@@ -44,7 +44,7 @@ export class Word extends DictionaryEntry {
   status!: WordStatus;
 
   @prop({ required: true })
-  timeToReview!: Date;
+  reviewAt!: Date;
 
   @prop({ required: true })
   user!: string;
