@@ -1,4 +1,5 @@
 const { prop, modelOptions, PropType } = require("@typegoose/typegoose");
+import { ObjectId } from "mongoose";
 
 export enum Answer {
   IDoNotRemember = 0,
@@ -24,21 +25,17 @@ export class WordSemantics {
 
 @modelOptions({ schemaOptions: { _id: false } })
 class History {
-  @prop({ required: true, type: Number }, PropType.ARRAY)
-  pushedAt: Array<number>;
+  @prop({ required: true, type: Date }, PropType.ARRAY)
+  pushedAt: Array<Date>;
 
-  @prop({ required: true, type: Number }, PropType.ARRAY)
-  answeredAt: Array<number>;
+  @prop({ required: true, type: Date }, PropType.ARRAY)
+  answeredAt: Array<Date>;
 
   @prop({ required: true, type: Number }, PropType.ARRAY)
   answers: Array<Answer>;
 }
 
-@modelOptions({
-  schemaOptions: {
-    timestamps: { currentTime: () => Math.floor(Date.now() / 1000) },
-  },
-})
+@modelOptions({ schemaOptions: { timestamps: true } })
 export class Word extends WordSemantics {
   @prop({ required: true })
   stage!: number;
@@ -47,7 +44,7 @@ export class Word extends WordSemantics {
   status!: WordStatus;
 
   @prop({ required: true })
-  notifyAt!: number;
+  timeToReview!: Date;
 
   @prop({ required: true })
   user!: string;
@@ -56,5 +53,5 @@ export class Word extends WordSemantics {
   history!: History;
 
   @prop({ required: true })
-  deletedAt!: number;
+  deletedAt!: Date;
 }
