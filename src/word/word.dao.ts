@@ -53,5 +53,5 @@ export class Word extends DictionaryEntry {
   history!: History;
 
   @prop({ required: true })
-  deletedAt!: Date;
+  deletedAt?: Date;
 }
