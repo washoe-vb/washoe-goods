@@ -1,3 +1,4 @@
+import { User } from "../user";
 export declare enum Answer {
     IDoNotRemember = 0,
     IRemember = 1,
@@ -22,7 +23,7 @@ export declare class Word extends DictionaryEntry {
     stage: number;
     status: WordStatus;
     reviewAt: Date;
-    user: string;
+    user: Pick<User, "id">;
     history: History;
     deletedAt?: Date;
 }
