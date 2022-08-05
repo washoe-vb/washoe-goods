@@ -1,5 +1,4 @@
 const { prop, modelOptions, PropType } = require("@typegoose/typegoose");
-import { ObjectId } from "mongoose";
 
 export enum Answer {
   IDoNotRemember = 0,
@@ -35,8 +34,16 @@ class History {
   answers: Array<Answer>;
 }
 
-@modelOptions({ schemaOptions: { timestamps: true } })
+@modelOptions({
+  schemaOptions: {
+    timestamps: true,
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+  },
+})
 export class Word extends DictionaryEntry {
+  id: string;
+
   @prop({ required: true })
   stage!: number;
 
