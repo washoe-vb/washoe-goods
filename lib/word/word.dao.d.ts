@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 export declare enum Answer {
     IDoNotRemember = 0,
     IRemember = 1,
@@ -19,8 +18,7 @@ declare class History {
     answers: Array<Answer>;
 }
 export declare class Word extends DictionaryEntry {
-    id: mongoose.Types.ObjectId;
-    _id: mongoose.Types.ObjectId;
+    id: string;
     stage: number;
     status: WordStatus;
     reviewAt: Date;
