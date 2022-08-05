@@ -23,7 +23,7 @@ export declare class Word extends DictionaryEntry {
     stage: number;
     status: WordStatus;
     reviewAt: Date;
-    user: Pick<User, "id">;
+    user: Pick<User, "_id">;
     history: History;
     deletedAt?: Date;
 }
