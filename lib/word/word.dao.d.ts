@@ -19,7 +19,7 @@ declare class History {
     answers: Array<Answer>;
 }
 export declare class Word extends DictionaryEntry {
-    id: string;
+    _id: string;
     stage: number;
     status: WordStatus;
     reviewAt: Date;
