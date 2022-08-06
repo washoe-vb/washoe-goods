@@ -1,4 +1,5 @@
 const { prop, modelOptions, PropType } = require("@typegoose/typegoose");
+import { User } from "../user";
 
 export enum Answer {
   IDoNotRemember = 0,
@@ -37,12 +38,10 @@ class History {
 @modelOptions({
   schemaOptions: {
     timestamps: true,
-    toJSON: { virtuals: true },
-    toObject: { virtuals: true },
   },
 })
 export class Word extends DictionaryEntry {
-  id: string;
+  _id: string;
 
   @prop({ required: true })
   stage!: number;
@@ -54,7 +53,7 @@ export class Word extends DictionaryEntry {
   reviewAt!: Date;
 
   @prop({ required: true })
-  user!: string;
+  user!: Pick<User, "_id">;
 
   @prop({ required: true })
   history!: History;
