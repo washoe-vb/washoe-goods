@@ -21,6 +21,15 @@ export class DictionaryEntry {
 
   @prop({ required: false })
   example?: string;
+
+  @prop({ required: false })
+  synonyms?: string[];
+
+  @prop({ required: false })
+  phonetic?: string;
+
+  @prop({ required: false })
+  partOfSpeech?: string;
 }
 
 @modelOptions({ schemaOptions: { _id: false } })
