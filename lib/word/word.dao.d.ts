@@ -12,6 +12,9 @@ export declare class DictionaryEntry {
     word: string;
     definition?: string;
     example?: string;
+    synonyms?: string[];
+    phonetic?: string;
+    partOfSpeech?: string;
 }
 declare class History {
     pushedAt: Array<Date>;
